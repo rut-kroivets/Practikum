@@ -18,7 +18,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Login([FromBody] LoginModel loginModel)
+    public IActionResult Post([FromBody] LoginModel loginModel)
     {
         if (loginModel.UserName == "admin" && loginModel.Password == "123456")
         {
