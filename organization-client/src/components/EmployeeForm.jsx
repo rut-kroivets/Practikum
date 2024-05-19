@@ -26,7 +26,7 @@ const EmployeeForm = observer(() => {
     const location = useLocation();
     const [addRoleOpen, setAddRoleOpen] = useState(false);
     const { employee } = location.state;
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     useEffect(() => {
         if (employee.identity == "") {
             setIsAdd(true);
@@ -61,7 +61,7 @@ const EmployeeForm = observer(() => {
     const addRole = () => {
         setAddRoleOpen(!addRoleOpen);
     }
-    
+
     return (
         <React.Fragment>
 
@@ -75,7 +75,7 @@ const EmployeeForm = observer(() => {
                         top: 8,
                         color: (theme) => theme.palette.grey[500],
                     }}
-                onClick={()=>{ navigate('/allEmployee')}}
+                    onClick={() => { navigate('/allEmployee') }}
                 >
                     <CloseIcon />
                 </IconButton>
@@ -149,7 +149,7 @@ const EmployeeForm = observer(() => {
                         sx={{ m: 1, width: '25ch' }}
                         type="date"
                         variant="outlined"
-                        defaultValue={employee.dateOfBirth? employee.dateOfBirth.split('T')[0] : ''}
+                        defaultValue={employee.dateOfBirth ? employee.dateOfBirth.split('T')[0] : ''}
                         required
                     />
                     <br />
@@ -160,17 +160,17 @@ const EmployeeForm = observer(() => {
                         sx={{ m: 1, width: '25ch' }}
                         type="date"
                         variant="outlined"
-                        defaultValue={employee.startOfWork? employee.startOfWork.split('T')[0] : ''}
+                        defaultValue={employee.startOfWork ? employee.startOfWork.split('T')[0] : ''}
                         required
                     />
                     <br />
-                  { !isAdd&&<Button variant="outlined" sx={{ m: 1, width: '27ch', height: '7ch', color: 'black' }} onClick={addRole}>Add role</Button>}                    
+                    {!isAdd && <Button variant="outlined" sx={{ m: 1, width: '27ch', height: '7ch', color: 'black' }} onClick={addRole}>Add role</Button>}
                     <DialogActions>
                         {isAdd ? <Button type="submit" >Add</Button> : <Button type="submit" >Edit</Button>}
                     </DialogActions>
                 </DialogContent>
             </Paper>
-           {addRoleOpen&& <AddPosition employeeId={employee.id} close={addRole}/>}
+            {addRoleOpen && <AddPosition employeeId={employee.id} close={addRole} />}
         </React.Fragment>
     );
 });
